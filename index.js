@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 const bodyParser = require("body-parser");
 const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
@@ -9,6 +10,7 @@ dotenv.config();
 const serviceAccount = require(process.env.SERVICE_ACCOUNT);
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT;
 
 admin.initializeApp({
